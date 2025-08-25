@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Carregamento de Caminhões</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dashboard de Carregamento</h1>
+
+        <div class="filter-container">
+            <div class="input-filter">
+                <label for="loja-filter">Filtrar por Loja:</label>
+                <input type="text" id="loja-filter" placeholder="Digite o nome da loja...">
+            </div>
+
+            <div class="button-group">
+                <div class="status-buttons">
+                    <button id="filter-complete" class="filter-button completed-button">Completos</button>
+                    <button id="filter-incomplete" class="filter-button incomplete-button">Incompletos</button>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="clear-button" class="clear-button">Limpar Filtros</button>
+                    <button id="refresh-button" class="refresh-button">Atualizar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="truck-grid">
+            <p id="loading">Carregando...</p>
+            <p>Nenhum caminhão encontrado.</p>
+        </div>
+
+        <p id="status-message"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f5;
+    color: #444;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    text-align: center;
+}
+
+h1 {
+    color: #004d99;
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Contêiner de Filtros e Botões - CORREÇÃO DE LAYOUT */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* Alinha o input e o grupo de botões nas extremidades */
+    align-items: flex-end;
+    /* Alinha os itens pela base, para o input ficar em linha com os botões */
+    gap: 15px;
+    margin-bottom: 40px;
+    padding: 25px;
+    border: 1px solid #d4d8e0;
+    border-radius: 10px;
+    background-color: #f7f9fc;
+}
+
+/* Novo estilo para o grupo de botões */
+.button-group {
+    display: flex;
+    gap: 15px;
+}
+
+.input-filter {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.input-filter label {
+    font-weight: bold;
+    color: #555;
+}
+
+.input-filter input {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.status-buttons,
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilo base para todos os botões */
+.filter-button,
+.clear-button,
+.refresh-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Regras de cores específicas */
+.completed-button {
+    background-color: #28a745;
+}
+
+.completed-button:hover {
+    background-color: #218838;
+}
+
+.incomplete-button {
+    background-color: #ffc107;
+}
+
+.incomplete-button:hover {
+    background-color: #e0a800;
+}
+
+.clear-button {
+    background-color: #dc3545;
+}
+
+.clear-button:hover {
+    background-color: #c82333;
+}
+
+.refresh-button {
+    background-color: #007bff;
+}
+
+.refresh-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos de mensagens e grade de caminhões */
+#status-message {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+#truck-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.loja-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.loja-container h2 {
+    font-size: 1.8em;
+    color: #004d99;
+    margin-top: 0;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.loja-trucks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.truck-card {
+    background-color: #fefefe;
+    border: 1px solid #e0e0e0;
+    border-left: 6px solid;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.truck-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.truck-emoji {
+    font-size: 5em;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+    color: #004d99;
+}
+
+p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress-bar {
+    height: 12px;
+    transition: width 0.4s ease-in-out;
+}
+
+.cd-info {
+    font-size: 0.8em;
+    color: #777;
+    margin-top: 15px;
+    border-top: 1px dashed #e0e0e0;
+    padding-top: 10px;
+}
+
+#loading {
+    display: none;
+    font-style: italic;
+    color: #777;
+    font-size: 1.1em;
+}
