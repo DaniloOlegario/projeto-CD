@@ -1,38 +1,41 @@
-****
-Para Windows (Usando o Agendador de Tarefas)
-O Windows tem um programa chamado "Agendador de Tarefas" que pode ser usado para agendar scripts.
+# 🚚 API de Monitoramento de Status de Caminhões (FastAPI/SQLAlchemy)
 
-Abra o Agendador de Tarefas: Pressione a tecla Windows, digite Agendador de Tarefas e abra o aplicativo.
+## 🎯 Visão Geral
 
-Crie uma Tarefa Básica: No painel da direita, clique em "Criar Tarefa Básica...".
+Este projeto é uma **API RESTful** desenvolvida em **FastAPI** para gerenciar e monitorar o status de viagens de caminhões em um Centro de Distribuição (CD). Ele simula um *pipeline* de dados onde informações operacionais são coletadas, armazenadas em **SQL** e transformadas em métricas de BI.
 
-Nome e Descrição:
+**Destaques:**
+* **Modelagem de Dados:** Uso de SQLAlchemy para criar tabelas e relações (`Caminhoes` e `Viagens`).
+* **Transformação de Dados:** Cálculo da `% de Carregamento` em tempo real na criação de cada registro.
+* **Endpoints de Análise:** Rota específica para extração de dados filtrados (`/viagens/`) e resumos estatísticos.
 
-Nome: Dê um nome, como Importar Dados Planilha.
+---
 
-Descrição: Adicione uma descrição, como Executa o script de importação de dados a cada 5 minutos.
+## 🛠️ Tecnologias Utilizadas
 
-Clique em Avançar.
+* **FastAPI:** Framework de alto desempenho para criação da API.
+* **SQLAlchemy:** ORM (Mapeador Objeto-Relacional) para manipulação eficiente do banco de dados (SQLite).
+* **Python/Pandas:** Utilizado no script de importação (`import_data.py`) para ETL (Extração, Transformação e Carga) de dados a partir de uma planilha (.xlsx).
+* **Uvicorn:** Servidor ASGI.
 
-Gatilho (Quando a tarefa será iniciada):
+---
 
-Selecione "Diariamente" e clique em Avançar.
+## 🚀 Funcionalidades da API
 
-Escolha a data e a hora de início (pode ser a hora atual).
+A API permite gerenciar e consultar os dados através dos seguintes *endpoints*:
 
-Clique em Avançar.
+| Método | Endpoint | Descrição |
+| :--- | :--- | :--- |
+| **POST** | `/viagens/` | Cria um novo registro de viagem, **calculando a % de carregamento** e vinculando à placa do caminhão (relação de banco de dados). |
+| **GET** | `/viagens/` | Retorna a lista de todas as viagens. Suporta filtros por `loja` e `status`. |
+| **GET** | `/viagens/summary` | **(Análise de Dados/BI)** Retorna o total de viagens, a média de carregamento e a contagem de viagens por status. |
+| **POST** | `/import-data/` | Limpa e importa novos dados de uma planilha (`planilha_automacao.xlsx`). |
 
-Ação (O que a tarefa fará):
+## ⚙️ Como Executar
 
-Selecione "Iniciar um programa" e clique em Avançar.
+1.  Clone o repositório.
+2.  Instale as dependências: `pip install -r requirements.txt`
+3.  Inicie a API: `uvicorn app:app --reload`
+4.  Acesse a documentação interativa para testes: `http://127.0.0.1:8000/docs`
 
-Configurar o Programa:
-
-Programa/script: Digite o caminho completo para o seu interpretador Python, por exemplo: C:\Users\SeuUsuario\AppData\Local\Programs\Python\Python310\python.exe
-
-Adicionar argumentos (opcional): Digite o caminho completo para o seu script, por exemplo: C:\caminho\para\sua\pasta\import_data.py
-
-Clique em Avançar e, depois, em Concluir.
-
-A sua tarefa de importação agora será executada automaticamente a cada 5 minutos. Se os dados da sua planilha mudarem, o seu painel irá refletir as alterações assim que você clicar no botão "Atualizar".
-***
+---
